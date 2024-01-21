@@ -89,10 +89,10 @@ class CustomerData(BaseModel):
     shoes: int
     accessories: int
 
-tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+tab1, tab2, tab3 = st.tabs(["Add Data", "Chat with Data"])
 
 with tab1:
-    st.header("A cat")
+    st.header("Data Input")
     data = sp.pydantic_form(key="my_form", model=CustomerData)
     if data:
         st.json(data.json())
