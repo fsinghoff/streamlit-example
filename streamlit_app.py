@@ -97,8 +97,33 @@ with tab1:
     if data:
         st.json(data.json())
 
+def get_agent():
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    
+    from langchain.agents.agent_types import AgentType
+    from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
+    from langchain_openai import ChatOpenAI
+    
+    import pandas as pd
+    from langchain_openai import OpenAI
+    
+    df = pd.read_excel('Kundendaten Florian.xlsx', sheet_name='Kundendaten')
+    
+    agent = create_pandas_dataframe_agent(
+        ChatOpenAI(temperature=0, model="gpt-4"),
+        df,
+        verbose=True,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+    )
+    return agent
 with tab2:
     st.header("A dog")
+    query = st.text_input()
+    st.shwo(agent.run(query))
     st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
 
 
