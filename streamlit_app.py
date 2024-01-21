@@ -42,12 +42,36 @@
 import streamlit as st
 from pydantic import BaseModel
 import streamlit_pydantic as sp
+from typing import Optional, List
 
-class ExampleModel(BaseModel):
-    some_text: str
-    some_number: int
-    some_boolean: bool
+class CustomerData(BaseModel):
+    customer_group_1: str
+    customer_group_2: str
+    title: str
+    first_name: str
+    last_name: str
+    street: str
+    postal_code: str
+    city: str
+    email: Optional[str]
+    country: str
+    language: str
+    birth_date: Optional[str]
+    age: Optional[int]
+    nl_online: Optional[str]
+    fb_nl: Optional[str]
+    number_of_orders: int
+    net_revenue: float
+    total_revenue: float
+    interests_preferences: Optional[List[str]]
+    style: Optional[List[str]]
+    shirt: int
+    top: int
+    pants: int
+    dress: int
+    shoes: int
+    accessories: int
 
-data = sp.pydantic_form(key="my_form", model=ExampleModel)
+data = sp.pydantic_form(key="my_form", model=CustomerData)
 if data:
     st.json(data.json())
