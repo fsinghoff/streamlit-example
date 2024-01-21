@@ -39,12 +39,21 @@
 #         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
 #     ))
 
+
+
 import streamlit as st
 from pydantic import BaseModel
 import streamlit_pydantic as sp
 from typing import Optional
 from datetime import date
 
+hide_streamlit_style = """
+            <style>
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 class CustomerData(BaseModel):
     customer_group_1: str
