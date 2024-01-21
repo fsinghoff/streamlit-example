@@ -49,11 +49,11 @@ from datetime import date
 
 hide_streamlit_style = """
             <style>
-            [data-testid="stToolbar"] {visibility: hidden !important;}
-            footer {visibility: hidden !important;}
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 class CustomerData(BaseModel):
     customer_group_1: str
