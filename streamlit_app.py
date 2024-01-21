@@ -89,6 +89,16 @@ class CustomerData(BaseModel):
     shoes: int
     accessories: int
 
-data = sp.pydantic_form(key="my_form", model=CustomerData)
-if data:
-    st.json(data.json())
+tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+
+with tab1:
+    st.header("A cat")
+    data = sp.pydantic_form(key="my_form", model=CustomerData)
+    if data:
+        st.json(data.json())
+
+with tab2:
+    st.header("A dog")
+    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+
+
