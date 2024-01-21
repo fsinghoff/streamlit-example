@@ -42,7 +42,9 @@
 import streamlit as st
 from pydantic import BaseModel
 import streamlit_pydantic as sp
-from typing import Optional, List
+from typing import Optional
+from datetime import date
+
 
 class CustomerData(BaseModel):
     customer_group_1: str
@@ -56,15 +58,15 @@ class CustomerData(BaseModel):
     email: Optional[str]
     country: str
     language: str
-    birth_date: Optional[str]
+    birth_date: Optional[date]
     age: Optional[int]
     nl_online: Optional[str]
     fb_nl: Optional[str]
     number_of_orders: int
     net_revenue: float
     total_revenue: float
-    interests_preferences: Optional[List[str]]
-    style: Optional[List[str]]
+    interests_preferences: Optional[str]
+    style: Optional[str]
     shirt: int
     top: int
     pants: int
