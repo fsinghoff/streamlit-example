@@ -3,3 +3,4 @@ pandas
 streamlit
 pydantic
 streamlit-pydantic
+"pydantic==1.*"
