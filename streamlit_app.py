@@ -89,7 +89,7 @@ class CustomerData(BaseModel):
     shoes: int
     accessories: int
 
-tab1, tab2, tab3 = st.tabs(["Add Data", "Chat with Data"])
+tab1, tab2 = st.tabs(["Add Data", "Chat with Data"])
 
 with tab1:
     st.header("Data Input")
