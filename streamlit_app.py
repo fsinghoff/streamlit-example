@@ -46,11 +46,25 @@ from pydantic import BaseModel
 import streamlit_pydantic as sp
 from typing import Optional
 from datetime import date
+from enum import Enum
+
+class TitleEnum(str, Enum):
+    mr = "Mr"
+    mrs = "Mrs"
+    ms = "Ms"
+    dr = "Dr"
+
+class EmployeeEnum(str, Enum):
+    full_time = "Full Time"
+    part_time = "Part Time"
+    intern = "Intern"
+    contractor = "Contractor"
 
 class CustomerData(BaseModel):
+    employee: EmployeeEnum
     customer_group_1: str
     customer_group_2: str
-    title: str
+    title: TitleEnum
     first_name: str
     last_name: str
     street: str
